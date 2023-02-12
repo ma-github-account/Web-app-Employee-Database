@@ -1,0 +1,99 @@
+{% extends 'hr/base.html' %}
+
+{% block content %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Employee Detail</title>
+    </head>
+    <body>
+
+    <br>
+    <p> <a class="btn btn-warning" href="{% url 'hr:employee_update' employee.id %}" role="button">Update</a>
+        <a class="btn btn-danger" href="{% url 'hr:employee_delete' employee.id %}" role="button">Delete</a>
+    </p>
+
+    {% if employee.photo %}
+        <img src="{{ employee.photo.url }}" style="width: 300px">
+        <br>
+    {% endif %}
+
+    <br>
+
+    <table class="table table-bordered w-auto">
+      <thead>
+        <tr>
+          <th scope="col">Field</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>First Name</td>
+          <td>{{ employee.first_name }}</td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td>{{ employee.last_name }}</td>
+        </tr>
+        <tr>
+          <td>Employee Id</td>
+          <td>{{ employee.employee_id }}</td>
+        </tr>
+        <tr>
+          <td>Company Branch</td>
+          <td>{{ employee.company_branch }}</td>
+        </tr>
+        <tr>
+          <td>Department</td>
+          <td>{{ employee.department }}</td>
+        </tr>
+        <tr>
+          <td>Position</td>
+          <td>{{ employee.position }}</td>
+        </tr>
+        <tr>
+          <td>Personal Phone</td>
+          <td>{{ employee.personal_phone }}</td>
+        </tr>
+        <tr>
+          <td>Personal Mail</td>
+          <td>{{ employee.personal_mail }}</td>
+        </tr>
+        <tr>
+          <td>Address</td>
+          <td>{{ employee.address }}</td>
+        </tr>
+        <tr>
+          <td>Date of Birth</td>
+          <td>{{ employee.date_of_birth }}</td>
+        </tr> 
+        <tr>
+          <td>Nationality</td>
+          <td>{{ employee.nationality }}</td>
+        </tr>        
+        <tr>
+          <td>Level of English</td>
+          <td>{{ employee.level_of_english }}</td>
+        </tr>
+        <tr>
+          <td>Native Language</td>
+          <td>{{ employee.native_language }}</td>
+        </tr>            
+      </tbody>
+    </table>
+
+    <p> <a class="btn btn-primary" href="{% url 'hr:employee_list' %}" role="button">View All Employees</a> 
+        <a class="btn btn-info" href="{% url 'hr:employee_create' %}" role="button"> + Add A New Employee</a>
+    </p>
+    </body>
+    </html>
+
+{% endblock %}
+
+
+
+
+

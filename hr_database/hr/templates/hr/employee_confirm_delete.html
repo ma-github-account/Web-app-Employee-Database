@@ -1,0 +1,14 @@
+{% extends 'hr/base.html' %}
+
+{% block content %}
+
+    <!DOCTYPE html>
+    <form method="post">{% csrf_token %}
+        <p>Are you sure you want to delete employee record {{ employee.first_name }} {{ employee.last_name }} ({{ employee.employee_id }})?</p>
+        <button class="btn btn-danger" type="submit">Confirm</button>
+    </form>
+
+{% endblock %}
+
+
+

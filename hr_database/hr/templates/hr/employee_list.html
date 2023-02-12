@@ -1,0 +1,78 @@
+{% extends 'hr/base.html' %}
+
+{% block content %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Employee List</title>
+    </head>
+    <body>
+    <h3>Employee List</h3>
+
+    <p> <a class="btn btn-info" href="{% url 'hr:employee_create' %}" role="button"> + Add A New Employee</a></p>
+
+    <table class="tablecenterCSS table table-hover table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Employee Id</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Position</th>
+          <th scope="col">Branch</th>
+          <th scope="col">Details</th>
+          <th scope="col">Update</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for employee in employees %}
+        <tr>
+          <td>{{ employee.employee_id }}</td>
+          <td>{{ employee.first_name }}</td>
+          <td>{{ employee.last_name }}</td>
+          <td>{{ employee.position }}</td>
+          <td>{{ employee.get_company_branch_display }}</td>
+          <td><a class="btn btn-primary" href="{% url 'hr:employee_detail' employee.id %}" role="button">Details</a></td>
+          <td><a class="btn btn-warning" href="{% url 'hr:employee_update' employee.id %}" role="button">Update</a></td>
+          <td><a class="btn btn-danger" href="{% url 'hr:employee_delete' employee.id %}" role="button">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </body>
+    </html>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
